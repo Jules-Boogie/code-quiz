@@ -1,4 +1,184 @@
-var timeEL = 
+//
+
+var timeEL = document.getElementById("#countdown");
+var startEL = document.getElementById("#start-button");
+var submitBtnEL = document.getElementById("#submit-button");
+var submitScoreEL = document.getElementById("#submit-score");
+var questionsEL = document.getElementById("#questions");
+var optionsEL = document.getElementById("#options");
+var firstScreen = document.getElementById('#first-screen')
+var questionScreen = document.getElementById('#question-screen')
+var optionBtn = document.querySelectorAll(".btn")
+var answer1 = document.getElementById("#button1")
+var answer2 = document.getElementById("#button2")
+var answer3 = document.getElementById("#button3")
+var answer4 = document.getElementById("#button4")
+var alertUser = document.querySelector(".alert")
+var inputInitial = document.getElementById("#inputInitial")
+
+var correctAnswer;
+var optionsAnswer;
+var totalScore = 0;
+var timeDisplay = 100;
+var userInitial;
+var timeRemaining; 
+var questionArray = -1 // this will help retrieve values from the array
+var userScore;
+var highScore;
+
+//event listeners
+
+startEL.addEventListener("click", startTime);
+submitBtnEL.addEventListener("click", function(event){
+event.stopPropagation();
+finalScore();
+
+})
+
+for (var i = 0; i < optionBtn.length; i++) {
+    optionBtn[i].addEventListener("click", function userChoice(event) {
+        event.stopPropagation();
+
+        if (event.currentTarget.innerText === correctAnswer) {
+            totalScore++
+            alertUser.innerHTML = "Correct!";
+            setTimeout(removeAlert,1000)
+            showAlert(); //create this
+        } else {
+            totalScore--
+            alertUser.innerHTML = "Please review course material!";
+            setTimeout(removeAlert,3000)
+            timeDisplay = timeDisplay - 20;
+            showAlert();
+        }
+        questionArray++
+        if(questionArray < 6){
+            displayQuestions;
+        }
+
+    });
+}
+
+
+
+
+//timer
+function setTime() {
+    var timerIn = setInterval(function () {
+        timeDisplay--;
+        timeEL.innerHTML = timeDisplay;
+
+
+    if(timeDisplay === 0 || questions.length === questionArray){
+        clearInterval(timerIn);
+        alert("Quiz Over");
+        quizOver(); //need to figure this out
+    }
+    },1000)
+
+}
+
+function quizOver(){
+    questionScreen.classList.add('d-none');
+    submitScoreEL.classList.remove('d-none');
+    document.getElementById("#user-score").textContent = "Your final score is " + totalScore + "!"
+ 
+}
+
+function finalScore() {
+    userInitial = inputInitial.Value
+    userScore = {
+        initial: userInitial,
+        score: totalScore
+    }
+    highScore.push(userScore)
+localStorage.setItem("highScore",JSON.stringify(highScore))
+ // convert into string and add into array and add to local storage. 
+}
+
+
+
+
+function storeScore(){
+
+}
+//we start the timer by clicking the button
+function startTime(){
+
+    // after we click the button,
+    //we have to remove the first screen and put the second using the classlist.add and classlist.remove
+    firstScreen.classList.add('d-none')
+    questionScreen.classList.remove('d-none')
+    setTime();
+    displayQuestions();
+}
+
+function displayQuestions(){
+    questionArray++;
+    questionsEL.textContent = questions[questionArray].question;
+    correctAnswer = questions[questionArray].answer;
+    optionsAnswer = questions[questionArray].options;
+    for(var i = 0; i < optionsAnswer.length; i++){
+        optionBtn.textContent = optionsAnswer[i]
+    }    
+    
+}    
+    
+function removeAlert() {
+    alertUser.style.display = "none"; //set alert user to not be displayed
+
+
+}
+
+function showAlert() {
+    alertUser.removeAttribute('style');
+    
+    
+    }
+
+
+    
+
+  
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 timer pseudocode:
@@ -6,14 +186,9 @@ timer pseudocode:
 
 2) if answer is wrong - 5 seconds get removed from the timeleft
 
-3) when timer reaches, the game is over.
+3) when timer reaches 0, the game is over.
 
 */ 
-var totalScore = 0;
-var timeDisplay = 100;
-var timeRemaining; 
-
-
 
 /*
 main.html
@@ -37,54 +212,4 @@ view high score link
 
 */
 
-var questions = [
-{   question:'Critical thinking concerns…',
-    options:['Determining the cause of our beliefs', 'Pinpointing the psychological basis of our beliefs','Determining the quality of our beliefs', 'Assessing the practical impact of our beliefs' ],
-    answer:'Determining the quality of our beliefs.'
 
-},
-
-{   question:'A belief is worth accepting if',
-    options:['We have good reasons to accept it','It is consistent with our needs','It has not been proven wrong','It is accepted by our peers'],
-    answer:'We have good reasons to accept it.'
-
-},
-
-{   question:'The word critical in critical thinking refers to…',
-    options:['A fault-finding attitude','Attempts to win an argument','Using careful judgment or judicious evaluation',' A lack of respect for other people'],
-    answer:'Using careful judgment or judicious evaluation.'
-
-},
-
-{   question:'A statement is…',
-    options:['A question or exclamation', 'An affirmation of prior beliefs', 'An assertion that something is or is not the case', 'An assertion that is neither true nor false'],
-    answer:'An assertion that something is or is not the case.'
-
-},
-
-{   question:'According to the text, critical thinking complements…',
-    options:['Our prejudices', 'Our emotions', 'Peer pressure', 'Our unconscious desires'],
-    answer:'Our emotions.'
-
-},
-
-
-{   question:'Statements backed by good reasons are…',
-    options:['Worthy of strong acceptance','To be believed with certainty','Never false','Beyond all possible doubt'],
-    answer:'Worthy of strong acceptance.'
-
-}
-
-]
-
-
-
-
-
-
-
-
-
-
-
-]
