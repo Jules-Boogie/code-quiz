@@ -23,7 +23,7 @@ var timeDisplay = 100;
 var userInitial;
 var timeRemaining; 
 var questionArray = -1 // this will help retrieve values from the array
-var userScore;
+//var userScore;
 var highScore;
 
 //event listeners
@@ -32,6 +32,9 @@ startEL.addEventListener("click", startTime);
 submitBtnEL.addEventListener("click", function(event){
 event.stopPropagation();
 finalScore();
+
+window.location.replace("./scores.html")
+
 
 })
 
@@ -87,13 +90,14 @@ function quizOver(){
 
 function finalScore() {
     userInitial = inputInitial.Value
-    userScore = {
+    var userScore = {
         initial: userInitial,
         score: totalScore
     }
+    highScore = JSON.parse(localStorage.getItem('highScore'))
     highScore.push(userScore)
-localStorage.setItem("highScore",JSON.stringify(highScore))
- // convert into string and add into array and add to local storage. 
+    localStorage.setItem("highScore", JSON.stringify(highScore))
+    // convert into string and add into array and add to local storage. 
 }
 
 

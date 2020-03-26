@@ -25,4 +25,9 @@ function goBack(){
 
 highScore = JSON.parse(localStorage.getItem("highScore")); //converts highScore into an object
 
-highScore.sort(function(b,a){return(a-b)})
+highScore.sort(function(b,a){return(a-b)}) //using  the inbuilt javascript sort feature to rearrange the scores from highest to lowest.
+for(var i = 0; i < highScore.length; i ++){
+    var testscore = document.createElement("li")
+    scoreNow.appendChild(testscore)
+    testscore.innerHTML ="Good Job, " + highScore[i].initial + highScore[i].score
+}
