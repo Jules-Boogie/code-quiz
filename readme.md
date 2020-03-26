@@ -15,10 +15,15 @@ Luis Miguel Rodriguez, my tutor who helped me visualize the task.
 
 **Built With**
 https://www.w3schools.com/jsref/prop_button_value.asp
+
 https://www.geeksforgeeks.org/jquery-set-the-value-of-an-input-text-field/
+
 https://www.w3schools.com/jsref/jsref_push.asp
+
 https://developer.mozilla.org/en-US/docs/Web/API/History_API
+
 https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
 https://medium.com/@monica1109/scheduling-settimeout-and-setinterval-ca2ee50cd99f
 
 
