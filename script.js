@@ -22,6 +22,26 @@ var questionArray = -1 // this will help retrieve values from the array
 //var userScore;
 var highScore;
 
+
+
+
+
+//we start the timer by clicking the button
+function startTime() {
+
+    // after we click the button,
+    //we have to remove the first screen and put the second using the classlist.add and classlist.remove
+    $("#first-screen").hide();
+    //$("#question-screen").hide();
+    //$("#submit-score").hide();
+    
+    //firstScreen.classList.add('d-none')
+    //questionScreen.classList.remove('d-none')
+    setTime();
+    displayQuestions();
+}
+
+
 //event listeners
 
 startEL.addEventListener("click", startTime);
@@ -31,7 +51,7 @@ submitBtnEL.addEventListener("click", function (event) {
     finalScore();
     //console.log("test")
 
-    window.location.href = "scores.html"
+    window.location.href = "scores.html" //window.local.replace() works as well
 
 
 });
@@ -177,29 +197,19 @@ $(".option4").on("click", function () {
     }
 
     function finalScore() {
-        userInitial = inputInitial.Value
+        userInitial = inputInitial.value
         var userScore = {
             initial: userInitial,
             score: totalScore
         }
-        highScore = JSON.parse(localStorage.getItem('highScore'))
+        highScore = JSON.parse(localStorage.getItem('highScore') || '[]');
         highScore.push(userScore)
-        localStorage.setItem("highScore", JSON.stringify(highScore))
+        localStorage.setItem("highScore", JSON.stringify(highScore));
         // convert into string and add into array and add to local storage. 
     }
 
 
-    //we start the timer by clicking the button
-    function startTime() {
-
-        // after we click the button,
-        //we have to remove the first screen and put the second using the classlist.add and classlist.remove
-        firstScreen.classList.add('d-none')
-        questionScreen.classList.remove('d-none')
-        setTime();
-        displayQuestions();
-    }
-
+  
     function displayQuestions() {
         questionArray++;
         //optionsEL.textContent = "";
