@@ -1,20 +1,16 @@
 //
 
-var timeEL = document.getElementById("#countdown");
-var startEL = document.getElementById("#start-button");
-var submitBtnEL = document.getElementById("#submit-button");
-var submitScoreEL = document.getElementById("#submit-score");
-var questionsEL = document.getElementById("#questions");
-var optionsEL = document.getElementById("#options");
-var firstScreen = document.getElementById('#first-screen')
-var questionScreen = document.getElementById('#question-screen')
+var timeEL = document.getElementById("countdown");
+var startEL = document.getElementById("start-button");
+var submitBtnEL = document.querySelector(".submit-button");
+var submitScoreEL = document.getElementById("submit-score");
+var questionsEL = document.getElementById("questions");
+var optionsEL = document.getElementById("options");
+var firstScreen = document.getElementById('first-screen')
+var questionScreen = document.getElementById('question-screen')
 var optionBtn = document.querySelectorAll(".btn")
-var answer1 = document.getElementById("#button1")
-var answer2 = document.getElementById("#button2")
-var answer3 = document.getElementById("#button3")
-var answer4 = document.getElementById("#button4")
 var alertUser = document.querySelector(".alert")
-var inputInitial = document.getElementById("#inputInitial")
+var inputInitial = document.getElementById("inputInitial")
 
 var correctAnswer;
 var optionsAnswer;
@@ -29,14 +25,16 @@ var highScore;
 //event listeners
 
 startEL.addEventListener("click", startTime);
+
 submitBtnEL.addEventListener("click", function(event){
 event.stopPropagation();
 finalScore();
+//console.log("test")
 
-window.location.replace("./scores.html")
+window.location.href = "scores.html"
 
 
-})
+});
 
 for (var i = 0; i < optionBtn.length; i++) {
     optionBtn[i].addEventListener("click", function userChoice(event) {
@@ -69,13 +67,13 @@ for (var i = 0; i < optionBtn.length; i++) {
 function setTime() {
     var timerIn = setInterval(function () {
         timeDisplay--;
-        timeEL.innerHTML = timeDisplay;
+        timeEL.innerHTML = "Time remaining: " + timeDisplay;
 
 
     if(timeDisplay === 0 || questions.length === questionArray){
         clearInterval(timerIn);
         alert("Quiz Over");
-        quizOver(); //need to figure this out
+        setTimeout(quizOver,1000); //need to figure this out
     }
     },1000)
 
@@ -84,7 +82,7 @@ function setTime() {
 function quizOver(){
     questionScreen.classList.add('d-none');
     submitScoreEL.classList.remove('d-none');
-    document.getElementById("#user-score").textContent = "Your final score is " + totalScore + "!"
+    document.getElementById("user-score").textContent = "Your final score is " + totalScore + "!"
  
 }
 

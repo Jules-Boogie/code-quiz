@@ -25,7 +25,18 @@
                 <h6>View High Scores</h6>
             </a>
         </div>
-    
+    <!--first screen-->
+    <div class="jumbotron" id="first-screen">
+        <!-- stolen from bootstrap website-->
+        <h1 class="display-5 text-center">Welcome, Class!</h1>
+        <p>Critical thinking? why does it matter? how does it work? why do we need it? Read and familiarize yourself with
+            Chapter 4's reading before taking this quiz. You have 100 seconds to complete the quiz. Click start to begin.
+        </p>
+        <hr class="my-4">
+        <p class="lead text-center">
+            <a class="btn btn-primary btn-lg" id="start-button">Start Quiz!</a>
+        </p>
+    </div>
     </div>
 <div class="row" id="question-screen">
     <div class="col">
@@ -47,17 +58,6 @@
     </div>
 
 </div>
-<!--first screen-->
-<div class="jumbotron" id="first-screen">
-    <!-- stolen from bootstrap website-->
-    <h1 class="display-5 text-center">Welcome, Class!</h1>
-    <p>Critical thinking? why does it matter? how does it work? why do we need it? Read and familiarize yourself with
-        Chapter 4's reading before taking this quiz. You have 100 seconds to complete the quiz. Click start to begin.</p>
-    <hr class="my-4">
-    <p class="lead text-center">
-        <a class="btn btn-primary btn-lg" id="start-button" href="#" role="button">Start Quiz!</a>
-    </p>
-</div>
 
 <!--Last screen-->
 <div class=".container" id="submit-score">
@@ -72,7 +72,7 @@
             <label for="inputInitial" class="sr-only"></label>
             <input type="name" class="form-control" id="inputInitial" placeholder="J.G">
         </div>
-        <button type="submit" class="btn btn-primary mb-2" class="submit-button">Submit</button>
+        <button type="button" class="btn btn-primary mb-2 submit-button">Submit</button>
     </form>
 </div>
 
@@ -84,5 +84,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script src="questions.js"></script>
+    <script src="scores.html"
 </body>
 </html>

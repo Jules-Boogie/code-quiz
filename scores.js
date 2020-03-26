@@ -1,6 +1,6 @@
-var previousBtn = document.getElementById("#previous-button")
-var nextBtn = document.getElementById("#clear-button")
-var scoreNow = document.getElementById("#scoreValue");
+var previousBtn = document.getElementById("previous-button")
+var nextBtn = document.getElementById("clear-button")
+var scoreNow = document.getElementById("scoreValue");
 
 
 // event listeners
