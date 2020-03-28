@@ -31,12 +31,12 @@ function startTime() {
 
     // after we click the button,
     //we have to remove the first screen and put the second using the classlist.add and classlist.remove
-    $("#first-screen").hide();
+   // $("#first-screen").hide();
     //$("#question-screen").hide();
     //$("#submit-score").hide();
     
-    //firstScreen.classList.add('d-none')
-    //questionScreen.classList.remove('d-none')
+    firstScreen.classList.add('d-none')
+    questionScreen.classList.remove('d-none')
     setTime();
     displayQuestions();
 }
