@@ -39,7 +39,7 @@ https://medium.com/@monica1109/scheduling-settimeout-and-setinterval-ca2ee50cd99
 * There are three js scripts in the asset folder: the score.js is used to retrieve the user's score from the localstorage and displays it on browser using the scores.html - script.js is the javascript for the main framework and questions.js has the array that contains that questions and answers. 
 * The code works in this way: when a user starts the quiz, they have 20 seconds to complete 6 questions. If the user completes the quiz or the timer gets the zero, the user is alerted that the game is over and is taken to the page where he or she sees their high score. 
 
-![Site Photo](Capture.PNG)
+![Site Photo](https://github.com/Jules-Boogie/code-quiz/blob/master/assets/Capture.PNG)
 
 
 Live Deployed Site:
