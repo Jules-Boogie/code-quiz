@@ -7,25 +7,20 @@ var scoreNow = document.getElementById("scoreValue");
 
 previousBtn.addEventListener("click", function(){
     goBack();
-    
-   // window.location.href = "main.html"
-    
 })
 
 
 nextBtn.addEventListener("click",function(){
     goBack();
-
     localStorage.clear();
 })
 
 function goBack(){
-    window.history.back(); // back() reloads the previous url
+    window.history.back();
 }
 
-highScore = JSON.parse(localStorage.getItem("highScore")); //converts highScore into an object
-
-highScore.sort(function(b,a){return(a-b)}) //using  the inbuilt javascript sort feature to rearrange the scores from highest to lowest.
+highScore = JSON.parse(localStorage.getItem("highScore")); 
+highScore.sort(function(b,a){return(a-b)}) 
 for(var i = 0; i < highScore.length; i ++){
     var testscore = document.createElement("p")
     scoreNow.appendChild(testscore)
