@@ -28,13 +28,6 @@ var highScore;
 
 //we start the timer by clicking the button
 function startTime() {
-
-    // after we click the button,
-    //we have to remove the first screen and put the second using the classlist.add and classlist.remove
-   // $("#first-screen").hide();
-    //$("#question-screen").hide();
-    //$("#submit-score").hide();
-    
     firstScreen.classList.add('d-none')
     questionScreen.classList.remove('d-none')
     setTime();
@@ -75,101 +68,6 @@ optionsEL.addEventListener("click", function (event) {
     displayQuestions();
 
 })
-
-/*
-$("#options").on("click", function(){
-    var temp = $(this).text();
-    console.log(temp) 
-    console.log(correctAnswer)
-    if (temp === correctAnswer) {
-        totalScore++
-        $(".alert").text("Correct!");
-        setTimeout(removeAlert, 1000)
-        showAlert(); //create this
-    } else {
-        totalScore--
-        $(".alert").text("Please review course material!");
-        setTimeout(removeAlert, 1000)
-        timeDisplay = timeDisplay - 20;
-        showAlert();
-    }
-    displayQuestions();
-    
-})
-
-
-
-$(".option1").on("click", function () {
-    var temp = $(this).text();
-    console.log(temp)
-    console.log(correctAnswer)
-    if (temp === correctAnswer) {
-        totalScore++
-        $(".alert").text("Correct!");
-        setTimeout(removeAlert, 1000)
-        showAlert();
-    } else {
-        totalScore--
-        $(".alert").text("Please review course material!");
-        setTimeout(removeAlert, 1000)
-        timeDisplay = timeDisplay - 20;
-        showAlert();
-    }console.log(totalScore)
-    displayQuestions();
-})
-
-$(".option2").on("click", function () {
-    var temp = $(this).text();
-    if (temp === correctAnswer) {
-        totalScore++
-        $(".alert").text("Correct!");
-        setTimeout(removeAlert, 1000)
-        showAlert(); //create this
-    } else {
-        totalScore--
-        $(".alert").text("Please review course material!");
-        setTimeout(removeAlert, 1000)
-        timeDisplay = timeDisplay - 20;
-        showAlert();
-    }
-    displayQuestions();
-})
-
-
-$(".option3").on("click", function () {
-    var temp = $(this).text();
-    if (temp === correctAnswer) {
-        totalScore++
-        $(".alert").text("Correct!");
-        setTimeout(removeAlert, 1000)
-        showAlert(); //create this
-    } else {
-        totalScore--
-        $(".alert").text("Please review course material!");
-        setTimeout(removeAlert, 1000)
-        timeDisplay = timeDisplay - 20;
-        showAlert();
-    }
-    displayQuestions();
-})
-
-$(".option4").on("click", function () {
-    var temp = $(this).text();
-    if (temp === correctAnswer) {
-        totalScore++
-        $(".alert").text("Correct!");
-        setTimeout(removeAlert, 1000)
-        showAlert(); //create this
-    } else {
-        totalScore--
-        $(".alert").text("Please review course material!");
-        setTimeout(removeAlert, 1000)
-        timeDisplay = timeDisplay - 20;
-        showAlert();
-    }
-    displayQuestions();
-})
-*/
 
 
 
@@ -218,11 +116,6 @@ $(".option4").on("click", function () {
         //console.log(correctAnswer)
         optionsAnswer = questions[questionArray].options;
         for (var i = 0; i < optionsAnswer.length; i++) {
-            //optionsEL.innerHTML = optionsAnswer[i]
-            //var li = document.createElement('li')
-            //li.textContent = optionsAnswer[i]
-            //optionBtn.appendChild(optionsEL)
-            //console.log(optionsAnswer[0])
             var option1 = document.querySelector(".option1")
             option1.innerHTML = optionsAnswer[0]
 
@@ -298,37 +191,4 @@ $(".option4").on("click", function () {
 
 
 
-
-
-/*
-timer pseudocode:
-1)click start button and the timer starts
-
-2) if answer is wrong - 5 seconds get removed from the timeleft
-
-3) when timer reaches 0, the game is over.
-
-*/
-
-/*
-main.html
-
-1) has the timer and the highscore links at the top right and left
-link to view highscore is on the left // time is on the right
-2) has the start button
-3) reflects question when timer starts
-4) question has buttons
-5)shows a form for user to add initial
-6) saves and returns initial of user and final score
-
-
-highscore
-view high score link
-1) stores the highest score for the user.
-
-
-
-
-
-*/
 
